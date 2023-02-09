@@ -119,6 +119,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!--
   <Target Name="AfterBuild" DependsOnTargets="SetAssemblyVersion;BuildPackageZip">
   </Target>
   <Target Name="SetAssemblyVersion" Condition="'$(Configuration)' == 'Release'">
@@ -130,7 +131,6 @@
     </Version>
     <AssemblyInfo CodeLanguage="CS" OutputFile="$(AssemblyInfoFile)" AssemblyVersion="$(Major).$(Minor).$(Build)" AssemblyFileVersion="$(Major).$(Minor).$(Build).$(Revision)" />
   </Target>
-  <!-- Create the package zip file -->
   <Target Name="BuildPackageZip" DependsOnTargets="SetAssemblyVersion" Condition="'$(Configuration)' == 'Release'">
     <PropertyGroup>
       <ReleasePath>bin\Release\</ReleasePath>
@@ -142,4 +142,5 @@
     <MakeDir Directories="releases" Condition="!Exists('releases')" />
     <Zip Files="@(Files)" WorkingDirectory="$(ReleasePath)" ZipFileName="releases\BMHyperDeckControl-$(Major).$(Minor).$(Build).$(Revision).zip" ZipLevel="9" />
   </Target>
+  -->
 </Project>
